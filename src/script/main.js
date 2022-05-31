@@ -1,13 +1,7 @@
-const hamburger = document.querySelector(".hamburger");
-const edAlert = document.querySelector(".edAlert");
+let alertPage = ('Atenção! Esta landing page foi criada apenas para fins educacionais.')
+window.alert(alertPage);
 
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    edAlert.classList.toggle("active");
-})
-
-
-document.querySelectorAll("nav-bar").forEach(n => n.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    edAlert.classList.remove("active");
-}))
+function Menu(e) {
+    let list = document.querySelector('ul');
+    e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
+}

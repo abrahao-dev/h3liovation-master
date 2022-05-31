@@ -13,21 +13,20 @@
 
 </head>
 
-<body>
-    <!-- component -->
-    <div class="bg-gray-200">
-        <nav class="border-b" x-data="{ mobileMenuOpen : false }">
+<body class="bg-gray-200">
+        <!-- header -->
+        <nav class="border-b">
             <div class="container px-6 py-2 mx-auto md:flex md:justify-between md:items-center">
                 <div class="flex items-center justify-between">
                     <div>
-                        <a href="#" class="text-xl text-gray-800 font-semiblod md:text-3xl hover:text-gray-700">
+                        <a href="#" class="text-xl text-gray-800 font-semiblod md:text-3xl hover:text-gray-600">
                             H3LIOVATI🌑N
                         </a>
                     </div>
+
                     <div class="flex md:hidden">
                         <button id="toggle-button" type="button" aria-label="toggle menu"
-                            class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
-                            @click="mobileMenuOpen = !mobileMenuOpen">
+                            class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600">
                             <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
                                 <path fill-rule="evenodd"
                                     d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
@@ -37,9 +36,8 @@
                     </div>
                 </div>
                 <div class="items-center md:flex" id="items-center-toggle">
-                    <div class="flex flex-col mt-4 space-y-8 md:flex-row md:items-center md:mt-0 md:space-y-0 md:space-x-16"
-                        :class="{ 'flex' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"
-                        @click.away="mobileMenuOpen = false">
+                    <div
+                        class="flex flex-col mt-4 space-y-8 md:flex-row md:items-center md:mt-0 md:space-y-0 md:space-x-16">
                         <a href="#"
                             class="block font-medium text-gray-700 hover:text-gray-900 hover:underline">CATÁLOGO</a>
                         <a href="#" class="block font-medium text-gray-700 hover:text-gray-900 hover:underline">O QUE É
@@ -56,7 +54,7 @@
                 </div>
             </div>
         </nav>
-
+        <!-- container -->
         <div class="container px-6 py-10 mx-auto md:py-16">
             <div class="flex flex-col space-y-6 md:flex-row md:items-center md:space-x-6">
                 <div class="w-full md:w-1/2">
@@ -237,17 +235,18 @@
                 </button>
             </div>
         </div>
+        <!-- footer -->
         <footer class="bg-gray-100">
             <div class="container flex flex-col items-center justify-between px-6 py-3 mx-auto sm:flex-row">
                 <a href="#" class="text-xl text-gray-800 font-semiblod md:text-3xl hover:text-gray-700">
                     H3LIOVATI🌑N
                 </a>
                 <p class="font-medium text-gray-800">vendas@h3liovation.com</p>
-                <a class="font-medium text-gray-800"
-                    href="https://docs.google.com/presentation/d/14zZCsclUm0uv_9GSxoJUvzNzjXxvstkpxAHTQs0-GNk/edit?usp=sharing">trabalho</a>
+                <a class="font-medium text-gray-300 hover:text-gray-800"
+                    href="https://docs.google.com/presentation/d/14zZCsclUm0uv_9GSxoJUvzNzjXxvstkpxAHTQs0-GNk/edit?usp=sharing">slides</a>
             </div>
         </footer>
-    </div>
+    <script src="./src/script/main.js"></script>
 </body>
 
 </html>
