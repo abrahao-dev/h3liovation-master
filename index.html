@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -10,20 +10,39 @@
     <meta name="author" content="Matheus Abrahão">
     <meta name="description" content="Motor a base de helio-3">
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v3.x.x/dist/alpine.min.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#111827'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="./src/script/main.js"></script>
-
 </head>
 
-<body>
-    <!-- component -->
-    <div class="bg-gray-200">
-        <nav class="border-b" x-data="{ mobileMenuOpen : false }">
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 min-h-screen"
+    x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+    <div class="relative overflow-hidden">
+        <nav class="backdrop-blur-lg bg-white/70 dark:bg-gray-900/70 sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700"
+            x-data="{ mobileMenuOpen: false }">
             <div class="container px-6 py-2 mx-auto md:flex md:justify-between md:items-center">
                 <div class="flex items-center justify-between">
                     <div>
-                        <a href="#" class="text-xl text-gray-800 font-semiblod md:text-3xl hover:text-gray-700">
+                        <a href="#"
+                            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary md:text-3xl hover:opacity-80 transition-opacity">
                             H3LIOVATI🌑N
                         </a>
                     </div>
@@ -43,17 +62,20 @@
                     <div class="flex flex-col mt-4 space-y-8 md:flex-row md:items-center md:mt-0 md:space-y-0 md:space-x-16"
                         :class="{ 'flex' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"
                         @click.away="mobileMenuOpen = false">
-                        <a href="#"
-                            class="block font-medium text-gray-700 hover:text-gray-900 hover:underline">CATÁLOGO</a>
-                        <a href="#" class="block font-medium text-gray-700 hover:text-gray-900 hover:underline">O QUE É
-                            HÉLIO-3?</a>
-                        <a href="#"
-                            class="block font-medium text-gray-700 hover:text-gray-900 hover:underline">SUSTENTABILIDADE</a>
-                        <a href="#"
-                            class="block font-medium text-gray-700 hover:text-gray-900 hover:underline">CONTATO</a>
+                        <a href="#catalogo"
+                            class="block font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">CATÁLOGO</a>
+                        <a href="#helio3"
+                            class="block font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">O
+                            QUE É HÉLIO-3?</a>
+                        <a href="#sustentabilidade"
+                            class="block font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">SUSTENTABILIDADE</a>
+                        <a href="#contato"
+                            class="block font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">CONTATO</a>
                         <button
-                            class="flex items-center px-5 py-3 font-medium tracking-wide text-center text-white capitalize bg-blue-600 rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                            RESERVE O SEU
+                            class="group relative inline-flex items-center px-6 py-3 font-semibold text-white bg-gradient-to-r from-primary to-secondary rounded-full overflow-hidden shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                            <span class="relative">RESERVE O SEU</span>
+                            <span
+                                class="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
                         </button>
                     </div>
                 </div>
@@ -64,15 +86,20 @@
             <div class="flex flex-col space-y-6 md:flex-row md:items-center md:space-x-6">
                 <div class="w-full md:w-1/2">
                     <div class="max-w-lg">
-                        <h1 class="text-2xl font-medium tracking-wide text-gray-800 md:text-4xl">
-                            O automóvel do <font color="#000099">Futuro</font> já está <font color="#32612d">Presente
-                            </font> nas ruas!
+                        <h1
+                            class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+                            O automóvel do <span
+                                class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-700">Futuro</span>
+                            já está <span
+                                class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-green-700">Presente</span>
+                            nas ruas!
                         </h1>
-                        <p class="mt-2 text-gray-600">
+                        <p class="mt-6 text-lg text-gray-600 dark:text-gray-300">
                             Apresentamos o primeiro carro a utilizar Hélio-3 como forma de combustível.
                         </p>
                         <div class="grid gap-6 mt-8 sm:grid-cols-2">
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -80,7 +107,8 @@
                                 </svg>
                                 <span>Preço popular <br> Design Premium</span>
                             </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -88,7 +116,8 @@
                                 </svg>
                                 <span>Seguro</span>
                             </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -96,7 +125,8 @@
                                 </svg>
                                 <span>Aprovado e testado <br> em 137 países</span>
                             </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -104,7 +134,8 @@
                                 </svg>
                                 <span>Fabricação na Alemanha e Estados unidos</span>
                             </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -112,7 +143,8 @@
                                 </svg>
                                 <span>Parcelamento Sem Juros</span>
                             </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -125,10 +157,264 @@
                 </div>
                 <div class="flex items-center justify-center w-full md:w-1/2">
                     <img src="https://cdn.motor1.com/images/mgl/AkBweL/s1/byd-han.jpg" alt="car photo"
-                        class="w-full h-full max-w-2xl rounded" />
+                        class="w-full h-full max-w-2xl rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500" />
                 </div>
             </div>
         </div>
+
+        <!-- Seção Quem Somos -->
+        <section id="quem-somos" class="py-20 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10">
+            <div class="container px-6 mx-auto">
+                <div class="flex flex-col space-y-12 md:flex-row md:items-center md:space-x-12">
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Quem Somos</h2>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+                            A H3LIOVATION é uma empresa pioneira no setor automotivo, revolucionando a indústria com nossa tecnologia inovadora baseada em Hélio-3. Surgimos da necessidade de criar uma solução sustentável para a mobilidade global.
+                        </p>
+                        <p class="text-gray-700 dark:text-gray-300 mb-8 text-lg leading-relaxed">
+                            Nossa missão é democratizar o acesso a veículos de alta tecnologia, oferecendo não apenas carros, mas uma nova experiência de mobilidade que respeita o meio ambiente.
+                        </p>
+                        <div class="grid gap-6 grid-cols-2">
+                            <div class="bg-white/30 dark:bg-gray-900/30 p-4 rounded-xl backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50">
+                                <div class="text-primary text-2xl font-bold mb-2">5000+</div>
+                                <div class="text-gray-600 dark:text-gray-400">Clientes Satisfeitos</div>
+                            </div>
+                            <div class="bg-white/30 dark:bg-gray-900/30 p-4 rounded-xl backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50">
+                                <div class="text-primary text-2xl font-bold mb-2">137</div>
+                                <div class="text-gray-600 dark:text-gray-400">Países Atendidos</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070" alt="H3LIOVATION Headquarter" class="rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                            <div class="absolute -bottom-4 -right-4 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg max-w-xs">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Entrega Rápida</h4>
+                                        <p class="text-xs text-gray-600 dark:text-gray-400">Disponível via terrestre ou aérea</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Catálogo -->
+        <section id="catalogo" class="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+            <div class="container px-6 mx-auto">
+                <h2
+                    class="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                    Nosso Catálogo</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div
+                        class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070"
+                                alt="H3U Model"
+                                class="object-cover w-full h-64 transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 dark:text-white">Modelo H3U</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">O modelo urbano perfeito para seu dia a
+                                dia.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">A partir de R$ 180.000</span>
+                                <button
+                                    class="px-4 py-2 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">Saiba
+                                    mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070"
+                                alt="H3S Model"
+                                class="object-cover w-full h-64 transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 dark:text-white">Modelo H3S</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Esportividade e tecnologia em perfeita
+                                harmonia.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">A partir de R$ 250.000</span>
+                                <button
+                                    class="px-4 py-2 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">Saiba
+                                    mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070"
+                                alt="H3R Model"
+                                class="object-cover w-full h-64 transform group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 dark:text-white">Modelo H3R</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">O luxo encontra a sustentabilidade.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">A partir de R$ 320.000</span>
+                                <button
+                                    class="px-4 py-2 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">Saiba
+                                    mais</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção O que é Hélio-3 -->
+        <section id="helio3"
+            class="py-20 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10">
+            <div class="container px-6 mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <h2
+                            class="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                            O que é Hélio-3?</h2>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">O Hélio-3 é um isótopo do hélio que possui
+                            imenso potencial energético. Encontrado em abundância na Lua, este elemento é considerado o
+                            combustível do futuro.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-700 dark:text-gray-300">100% limpo e renovável</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-700 dark:text-gray-300">Alta eficiência energética</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-gray-700 dark:text-gray-300">Zero emissão de carbono</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=2069"
+                                alt="Hélio-3" class="rounded-2xl shadow-2xl">
+                            <div class="absolute -bottom-4 -right-4 bg-white dark:bg-gray-900 p-4 rounded-xl shadow-lg">
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Fonte: Exploração Lunar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sustentabilidade -->
+        <section id="sustentabilidade" class="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+            <div class="container px-6 mx-auto">
+                <h2
+                    class="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                    Compromisso com a Sustentabilidade</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 dark:text-white">Energia Limpa</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Nossa tecnologia utiliza apenas energia limpa e
+                            renovável, contribuindo para um futuro mais sustentável.</p>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 dark:text-white">Impacto Global</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Nossos veículos estão ajudando a reduzir a pegada de
+                            carbono em escala global.</p>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 dark:text-white">Reciclagem</h3>
+                        <p class="text-gray-600 dark:text-gray-400">100% dos nossos componentes são recicláveis e
+                            reutilizáveis, minimizando o impacto ambiental.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato"
+            class="py-20 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10">
+            <div class="container px-6 mx-auto">
+                <h2
+                    class="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                    Entre em Contato</h2>
+                <div class="max-w-2xl mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                for="name">Nome</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800 dark:text-white"
+                                placeholder="Seu nome">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                for="email">Email</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800 dark:text-white"
+                                placeholder="seu@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                for="message">Mensagem</label>
+                            <textarea id="message" rows="4"
+                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800 dark:text-white"
+                                placeholder="Sua mensagem"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-lg hover:opacity-90 transition-opacity">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
         <div class="container px-6 py-10 mx-auto">
             <h3 class="text-gray-800">Escolha a forma de entrega</h3>
             <div class="flex items-center mt-5 space-x-6">
@@ -165,8 +451,7 @@
         <div class="container px-6 py-10 mx-auto md:py-16">
             <div class="flex flex-col space-y-6 md:flex-row md:items-center md:space-x-6">
                 <div class="flex items-center justify-center w-full md:w-1/2">
-                    <img src="https://cdn.electrichunter.com/sites/default/files/field/image/BYD-Han-electric-car-2020-m08.jpg"
-                        alt="car photo" class="w-full h-full max-w-2xl rounded" />
+
                 </div>
                 <div class="w-full md:w-1/2">
                     <div class="max-w-md mx-auto">
@@ -180,7 +465,8 @@
                             opção em que o carro é entregue a você por via aérea.
                         </p>
                         <div class="grid gap-6 mt-8 sm:grid-cols-2">
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -188,7 +474,8 @@
                                 </svg>
                                 <span>Combustível limpo <br> (99,9% renovável)</span>
                             </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -196,7 +483,8 @@
                                 </svg>
                                 <span>Design esportivo</span>
                             </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -204,7 +492,8 @@
                                 </svg>
                                 <span>Motor inquebrável <br> (Base borofeno)</span>
                             </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
+                            <div
+                                class="flex items-center space-x-4 text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -215,29 +504,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="max-w-3xl px-6 py-10 mx-auto">
-            <h1 class="text-2xl font-medium tracking-wide text-center text-gray-800 md:text-4xl">
-                Contate-nos
-            </h1>
-            <p class="mt-2 text-center text-gray-600">
-                Coloque suas informações abaixo.
-            </p>
-            <div class="flex flex-col mt-6 space-y-5 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-5">
-                <input type="text" placeholder="Nome Completo"
-                    class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
-                <input type="email" placeholder="E-Mail"
-                    class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
-            </div>
-            <textarea name="message" id="message" placeholder="Mensagem"
-                class="w-full h-56 mt-5 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                spellcheck="false"></textarea>
-            <div class="flex items-center justify-center mt-6">
-                <button
-                    class="px-5 py-3 font-medium tracking-wide text-center text-white capitalize bg-blue-600 rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                    Enviar
-                </button>
             </div>
         </div>
         <footer class="bg-gray-100">
